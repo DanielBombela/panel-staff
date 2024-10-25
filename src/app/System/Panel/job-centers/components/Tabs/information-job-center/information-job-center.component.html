@@ -1,0 +1,142 @@
+<div class="container-fluid">
+<div class="d-flex justify-content-end">
+    <button (click)="update()"  class=" bg-color-accent" matTooltip="Guardar datos" mat-mini-fab >
+        <mat-icon class="text-white">save</mat-icon>
+      </button>
+      <button (click)="deleteJobCenter()" color="warn" class="ms-2 " matTooltip="Eliminar Centro de trabajo" mat-mini-fab >
+        <mat-icon class="text-white" >delete</mat-icon>
+      </button>
+</div>
+    <form   [formGroup]="Form">
+        <div class="row">
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Nombre</mat-label>
+                
+                    <input  formControlName="name" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Razón social</mat-label>
+                
+                    <input  formControlName="business_name" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Responsable</mat-label>
+                
+                    <input  formControlName="health_manager" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Registro de compañía</mat-label>
+                
+                    <input  formControlName="taxpayer_registration" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Número de licencia</mat-label>
+                
+                    <input  formControlName="license_number" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Correo</mat-label>
+                
+                    <input  formControlName="email" type="email" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Teléfono</mat-label>
+                
+                    <input  formControlName="phone"  type="number" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Whatsapp</mat-label>
+                
+                    <input  formControlName="whatsapp"  type="number" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Página web</mat-label>
+                
+                    <input  formControlName="web_page"  type="text" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Facebook</mat-label>
+                
+                    <input  formControlName="facebook"  type="text" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Messenger</mat-label>
+                
+                    <input  formControlName="messenger"  type="text" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Domicilio</mat-label>
+                
+                    <input  formControlName="address"  type="text" matInput   >
+                  </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field appearance="outline" class="w-100 mt-2">
+                    <mat-label>Recomendaciones</mat-label>
+                    <textarea matInput formControlName="recommendations"  rows="10" ></textarea>
+                  </mat-form-field>
+            </div>
+
+            <div class="col-sm-12 col-md-3 ">
+                <mat-form-field appearance="outline" class="w-100 mt-2">
+                    <mat-label>Términos</mat-label>
+                    <textarea matInput formControlName="agreement" rows="10" ></textarea>
+                  </mat-form-field>
+                 
+            </div>
+
+            <div  class="col-sm-12 col-md-3 ">
+             
+              <label for="upload" class="upload-label d-flex justify-content-center" *ngIf="!Form.value.sanitary_license">
+                <div  class="d-flex justify-content-center mt-5 hover-pointer">
+                  
+                  <mat-icon  class="me-3 text-dark">file_upload</mat-icon>
+                  <a class="file-text fw-bold">Licencia sanitaria</a>
+              
+              </div>
+                <input type="file" accept="application/pdf" name="file" id="upload" class="upload-input" (change)="onFileSelected($event)"/>
+              </label>
+              
+              <div *ngIf="Form.value.sanitary_license" class="">
+                <div  class="d-flex justify-content-center mt-5 hover-pointer">
+                  
+                  <mat-icon  class="me-3 text-danger">picture_as_pdf</mat-icon>
+                  <a [href]="JobCenter.sanitary_license" target="_blank" class="file-text fw-bold">Documento cargado</a>
+                
+                <mat-icon class="delete-icon ms-3" (click)="removeFile()">close</mat-icon>
+              </div>
+              </div>
+
+             
+          
+          
+             </div>
+          
+        </div>
+        
+        
+        </form>
+</div>

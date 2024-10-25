@@ -1,0 +1,150 @@
+
+<mat-toolbar class="d-flex justify-content-between px-5 align-items-center bg-color-accent mat-elevation-z3">
+
+    <div  class="d-flex align-items-center ">
+      <button *ngIf="!hideSidebar()" mat-icon-button (click)="collapsed.set(!collapsed())">
+        <mat-icon class="text-white">menu</mat-icon>
+      </button>
+      <h1 class="text-white ms-3 fw-bold">PANEL PESTWARE</h1>
+    </div>
+    <div class="s">
+      <button (click)="user.logout()" matTooltip="Cerrar sesión" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon class="text-white fw-bold">logout</mat-icon>
+      </button>
+    </div>
+  
+  </mat-toolbar>
+  
+  <!-- class="	d-none d-sm-block"-->
+  <!-- *ngIf="!mobileQuery.matches"-->
+  <mat-sidenav-container  *ngIf="!hideSidebar()"  >
+    <mat-sidenav class="shadow" opened mode="side" [style.width]="sidenavWidth()">
+  
+      <div class="sidenav-header">
+        <img
+          [width]="profilePicSize()"
+          [height]="profilePicSize()"
+          src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"
+        />
+        <div class="header-text" [class.hide-header-text]="collapsed()">
+          <h2>{{user.currentUser().name}} {{user.currentUser().last_name}}</h2>
+          
+        </div>
+      </div>
+  
+      <mat-nav-list  >
+        @for(item of itemsMenu; track item.name) {
+          <mat-list-item
+          (click)="item.children.length > 0  ? item.isActive = !item.isActive : null"
+  
+            class="pe-3"
+            [routerLink]="item.route"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }">
+  
+            <div class="d-flex align-items-center">
+              <mat-icon [matTooltip]="item.name" class="menu-icon icon-gray" matListItemIcon>{{item.icon}}</mat-icon>
+              <span class="ms-4 menu-text text-gray">{{item.name}}</span>
+              @if(item.children.length > 0) {
+                <span class="mt-2 ps-4" matListItemMeta>
+                  @if(item.isActive) {
+                  <mat-icon>expand_less</mat-icon>
+                  } @else {
+                  <mat-icon>expand_more</mat-icon>
+                  }
+                </span>
+                }
+            </div>
+  
+  
+  
+          </mat-list-item>
+          @if (item.isActive) {
+            @for(subItem of item.children; track subItem.name) {
+              <div class="" @expandContractMenu>
+                <mat-list-item
+  
+            class="pe-3"
+            [routerLink]="subItem.route"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }">
+  
+  
+            <div [ngClass]="{'ps-3': !collapsed()  }" class="d-flex align-items-center">
+              <mat-icon [matTooltip]="subItem.name" class="menu-icon icon-gray" matListItemIcon>{{subItem.icon}}</mat-icon>
+  
+              @if(item.isActive) {
+                <span class="ms-4 menu-text">{{subItem.name}}</span>
+              }
+            </div>
+  
+  
+          </mat-list-item>
+  
+  
+  
+  
+  
+              </div>
+            }
+  
+            }
+        }
+  
+  
+  
+  
+      </mat-nav-list>
+  
+  
+    </mat-sidenav>
+    <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+      <div class="card shadow p-5">
+  <!--
+          <div class="folder-container">
+          <div class="folder">
+            <div class="folder-header text-center">Swopyn SA de CV ds dsv dssdvd dssdv  ssacd acas</div>
+          </div>
+  
+          <div class="folder">
+            <div class="folder-header">📁 Carpeta 2</div>
+          </div>
+          <div class="folder">
+            <div class="folder-header">📁 Carpeta 3</div>
+          </div>
+          <div class="folder">
+            <div class="folder-header">📁 Carpeta 4</div>
+          </div>
+        </div>
+  -->
+  
+  
+      <router-outlet></router-outlet>
+  
+       <!-- 
+       <app-catalogs [data]="dataSource" [displayedColumns]="displayedColumns"></app-catalogs>
+  -->
+    
+  
+      </div>
+  
+  
+  
+  
+  
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <div *ngIf="hideSidebar()" >
+        <router-outlet></router-outlet>
+  </div>
+  <!--
+  
+  
+  <div class="d-block d-sm-none">
+    <router-outlet></router-outlet>
+  </div>
+  
+  -->
+  

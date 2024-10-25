@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-12 col-md-3 col-lg-4">
+<div class="d-flex justify-content-start align-items-center">
+  <mat-form-field  appearance="outline" class="w-100 mt-4">
+    <mat-label>Buscar compañía</mat-label>
+
+    <input   (input)="searchCompanie($event)" matInput   >
+  </mat-form-field>
+
+    <button class="ms-3" matTooltip="Agregar compañía" mat-mini-fab >
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </div>
+</div>
+
+<div class="client-container">
+   @for (companie of CompaniesFilter; track $index) {
+    <div (click)="viewCompanie(companie)" class="client-card">
+      <div class="client-icon text-center">
+        <img [src]="companie.web_logo" alt="Cliente A" />
+      </div>
+      <div class="text-center">
+        <p class="fw-bold ">{{companie.name}}</p>
+        <p class="fw-bold mb-0">Email:</p>  
+        <p>{{companie.contact_email}}</p>
+        <p class="fw-bold mb-0">Teléfono:</p>  
+        <p>{{companie.contact_phone}}</p>
+        <p class="fw-bold mb-0">País:</p>  
+        <p>{{companie.country.name}}</p>
+      </div>
+    </div>
+   }
+   
+   
+  </div>

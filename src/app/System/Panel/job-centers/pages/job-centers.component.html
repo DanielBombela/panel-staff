@@ -1,0 +1,92 @@
+
+    <div class="  bg-color-primary justify-content-between d-flex align-items-center">
+        <div class="  d-flex align-items-center">
+            <button routerLink="/calendario" class="ms-3 bg-white" matTooltip="Volver" mat-mini-fab >
+                <mat-icon class="text-dark">arrow_back</mat-icon>
+              </button>
+        <h5 class="fw-bold text-white ms-3 mt-3">{{Companie?.name}}</h5>
+        
+        </div>
+         <div class="d-flex mx-5 flex-wrap">
+            <button  class=" bg-white" matTooltip="Editar compañía" mat-mini-fab >
+                <mat-icon class="text-color-accent">edit</mat-icon>
+              </button>
+              <button color="warn" class="ms-2 " matTooltip="Eliminar compañía" mat-mini-fab >
+                <mat-icon class="text-white" >delete</mat-icon>
+              </button>
+         </div>
+        </div>
+        
+        <mat-sidenav-container    >
+            <mat-sidenav class="px-2" opened mode="side" [style.width]="sidenavWidth()">
+                <div class="d-flex justify-content-around align-items-center j mt-4">
+                    <mat-icon class="menu-icon  icon-gray " matListItemIcon>home</mat-icon> 
+                    <p class="h5 fw-bold mb-2  text-center mt-2">  Centros de trabajo - {{totalDatos}}</p>
+                    <button (click)="addJobCenter()" class=" bg-color-accent" matTooltip="Agregar centro de trabajo" mat-mini-fab >
+                      <mat-icon class="text-white">add</mat-icon>
+                    </button>
+                </div>
+         <div class="sidenav-header mt-3">
+                <mat-form-field  appearance="outline" class="w-100 ">
+                    <mat-label>Buscar centro de trabajo</mat-label>
+                
+                    <input (input)="searchJobCenter($event)"  matInput   >
+                  </mat-form-field>
+            
+              </div>
+          
+           
+              
+         
+                  <mat-nav-list  >
+                    @for(item of JobCentersFilter; track item.name) {
+                      <mat-list-item
+                    
+              (click)="selectJobCenter(item)"
+                        
+                        [routerLink]= "geturlItem(item)"
+                        routerLinkActive="active-link"
+                        [routerLinkActiveOptions]="{ exact: true }">
+              
+                        <div class="d-flex align-items-center">
+                          <mat-icon [matTooltip]="item.name" class="menu-icon icon-gray" matListItemIcon>home</mat-icon>
+                          <span class="ms-2 menu-text text-gray">{{item.name}}</span>
+                      
+                        </div>
+              
+              
+              
+                      </mat-list-item>
+                   
+                    }
+              
+              
+              
+              
+                  </mat-nav-list>
+                  <div class="mt-0 text-center">
+                    <div class="">
+                      <mat-icon class="text-dark hover-pointer" (click)="previousPage()">chevron_left</mat-icon>
+                      <mat-icon  class="text-dark hover-pointer" (click)="nextPage()">chevron_right</mat-icon>
+                    </div>
+                    <small>Página {{currentPage}}</small>
+                  </div>
+          
+            </mat-sidenav>
+            <mat-sidenav-content class="" [style.margin-left]="sidenavWidth()">
+              <div class=" px-3 py-4 ">
+   
+           
+                 <router-outlet ></router-outlet>
+        
+         
+          
+              </div>
+          
+          
+          
+          
+          
+          
+            </mat-sidenav-content>
+          </mat-sidenav-container>

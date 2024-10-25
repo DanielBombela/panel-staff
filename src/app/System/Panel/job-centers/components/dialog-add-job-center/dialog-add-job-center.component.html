@@ -1,0 +1,20 @@
+<div class="p-3 container">
+<div class="d-flex justify-content-between">
+    <p class="fw-bold">Nuevo Centro de trabajo</p>
+    <button (click)="close()" class="btn btn-close"></button>
+</div>
+<div [formGroup]="Form" class="row">
+    <div class="col-12">
+        <mat-form-field  appearance="outline" class="w-100 mt-2">
+            <mat-label>Nombre</mat-label>
+        
+            <input  formControlName="name" matInput   >
+          </mat-form-field>
+    </div>
+    <div class="col-12 text-center">
+        <button [disabled]="Form.invalid" (click)="addJobCenter()" class="" color="accent" matTooltip="Guardar" mat-mini-fab >
+            <mat-icon class="text-white">save</mat-icon>
+          </button>
+    </div>
+</div>
+</div>

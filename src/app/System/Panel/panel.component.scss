@@ -1,0 +1,220 @@
+mat-toolbar {
+    position: relative;
+    z-index: 5;
+  }
+  
+  .content {
+    padding: 24px;
+    background-color: #fff !important;
+  }
+  
+  mat-sidenav-container {
+  
+    height: calc(100vh - 64px);
+  }
+  
+  mat-sidenav-content,
+  mat-sidenav {
+  
+    transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+  }
+  
+  
+  
+  :host * {
+    transition: all 500ms ease-in-out;
+  }
+  
+  .sidenav-header {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    > img {
+      object-fit: cover;
+      object-position: center;
+      border-radius: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .header-text {
+      text-align: center;
+      height: 3rem;
+  
+      > h2 {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+  
+      > p {
+        margin: 0;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  
+  .hide-header-text {
+    height: 0 !important;
+    opacity: 0;
+  }
+  
+  
+  
+  /* Aplica el fondo y color blanco cuando el enlace está activo */
+  mat-list-item.active-link {
+    background-color: #4c63b6 !important; /* Cambia el color de fondo */
+    color: white !important; /* Establece el color blanco para el texto y los iconos */
+  }
+  
+  /* Asegúrate de que los iconos y textos dentro del enlace activo hereden el color */
+  mat-list-item.active-link mat-icon,
+  mat-list-item.active-link span {
+    color: white !important; /* Aplica color blanco a los iconos y texto */
+  }
+  .icon-gray{
+    color: #a5a5a5;
+    font-weight: bold;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .folder-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .folder {
+    width: 200px; /* Ancho de la carpeta */
+    height: 100px; /* Altura de la carpeta */
+    background-color: #4c63b6; /* Color de la carpeta */
+    border-radius: 5px 5px 0 0; /* Esquinas redondeadas en la parte superior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Para posicionar el pseudo-elemento */
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .folder:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .folder-header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+    padding: 10px; /* Espaciado dentro de la carpeta */
+    color: #fff; /* Color del texto */
+    font-weight: bold;
+  }
+  
+  .folder::before {
+    content: '';
+    position: absolute;
+    top: -15px; /* Para colocar el pico de la carpeta */
+    left: 10px;
+    width: 100px; /* Ancho del pico */
+    height: 15px; /* Altura del pico */
+    background-color: #677cc9; /* Mismo color que la carpeta */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del pico */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .client-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .client-card {
+    width: 250px; /* Ancho de la tarjeta */
+    background-color: #ffffff; /* Color de fondo */
+    border: 1px solid #cccccc; /* Borde */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center; /* Centrar texto */
+    transition: transform 0.3s, box-shadow 0.3s; /* Efecto de transición */
+    cursor: pointer; /* Cursor de mano al pasar el ratón */
+  }
+  
+  .client-card:hover {
+    transform: translateY(-5px); /* Elevar la tarjeta al pasar el ratón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+  }
+  
+  .client-icon {
+    width: 70px; /* Ancho del ícono */
+    height: 70px; /* Altura del ícono */
+    margin: 10px auto; /* Centrar horizontalmente */
+    overflow: hidden; /* Para que la imagen no sobresalga */
+  }
+  
+  .client-icon img {
+    width: 100%; /* Imagen se adapta al contenedor */
+    height: 100%; /* Imagen se adapta al contenedor */
+    object-fit: cover; /* Mantener la proporción de la imagen */
+  }
+  
+  .client-info {
+    padding: 10px; /* Espacio interno */
+  }
+  
+  .client-info h3 {
+    margin: 5px 0; /* Margen para el nombre */
+    font-size: 1.2em; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+  }
+  
+  .client-info p {
+    margin: 2px 0; /* Margen para los párrafos */
+    color: #555; /* Color del texto */
+  }
+  
+  
+  

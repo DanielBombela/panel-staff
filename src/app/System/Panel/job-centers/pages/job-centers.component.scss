@@ -1,0 +1,51 @@
+mat-toolbar {
+    position: relative;
+    z-index: 5;
+  }
+  
+  
+  mat-sidenav-container {
+  
+    height: calc(90vh);
+  }
+  
+  mat-sidenav-content,
+  mat-sidenav {
+  
+    transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+  }
+  
+  
+  
+  :host * {
+    transition: all 500ms ease-in-out;
+  }
+  
+  .job-center:hover{
+    background-color: rgb(118, 184, 238);
+    font-weight: bold !important;
+  }
+  
+  
+    /* Aplica el fondo y color blanco cuando el enlace está activo */
+    mat-list-item.active-link {
+      background-color: #3d91f0 !important; /* Cambia el color de fondo */
+      color: white !important; /* Establece el color blanco para el texto y los iconos */
+    }
+    
+    /* Asegúrate de que los iconos y textos dentro del enlace activo hereden el color */
+    mat-list-item.active-link mat-icon,
+    mat-list-item.active-link span {
+      color: white !important; /* Aplica color blanco a los iconos y texto */
+    }
+    .icon-gray{
+      color: #a5a5a5;
+      font-weight: bold;
+    }
+    
+    
+    

@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*/
+@import './custom-theme.scss';
+
+$var-color-primary:#3d91f0;
+$var-color-accent:#4c63b6;
+$var-color-warn:#f0072a;
+
+html, body { height: 100%;  }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-color-primary{
+ color: $var-color-primary !important;
+}
+.text-color-accent{
+  color: $var-color-accent !important;
+ }
+ .bg-color-primary{
+  background-color: $var-color-primary !important;
+ }
+ .bg-color-accent{
+  background-color: $var-color-accent !important;
+ }
+
+ .item-menu-selected:hover{
+  background-color: $var-color-accent !important;
+  color: #fff !important;
+ }
+.hover-pointer{
+  cursor: pointer !important;
+}
+
+.item-menu-selected:hover .mat-list-text {
+  color: #fff !important; /* Esto aplicará el color blanco al texto dentro del mat-list-item */
+}
+
+ ::ng-deep .custom-style{
+  background-color:brown !important;
+  color:white !important;
+}
+
+
+.mat-mdc-mini-fab:not(.mdc-fab--extended) {
+  box-shadow: none;
+  border-radius: var(--mdc-fab-small-container-shape);
+}
+
+.mat-mdc-mini-fab:not(.mdc-fab--extended):hover {
+  box-shadow: none;
+  border-radius: var(--mdc-fab-small-container-shape);
+}

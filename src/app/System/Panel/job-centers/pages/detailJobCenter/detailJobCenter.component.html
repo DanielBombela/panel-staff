@@ -1,0 +1,13 @@
+<div  class="card  px-5">
+    <h5 class="mt-4 mb-4 fw-bold">{{JobCenter?.name}}</h5>
+    <mat-tab-group animationDuration="0ms" mat-stretch-tabs="false" mat-align-tabs="start">
+        <mat-tab label="Información centro de trabajo">
+            <div class="mt-4">
+                <app-information-job-center *ngIf="JobCenter" [JobCenter]="JobCenter"></app-information-job-center>
+              
+            </div>
+        </mat-tab>
+        <mat-tab label="Empleados">Empleados</mat-tab>
+        <mat-tab label="Grupos">Grupos</mat-tab>
+      </mat-tab-group>
+</div>

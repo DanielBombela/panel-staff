@@ -1,0 +1,36 @@
+
+<div class="ui-login-bg"></div>
+<div class="ui-login ">
+
+    <form class="ui-form the-dense-zone " [formGroup]="loginForm" novalidate >
+
+      <div class="text-center mb-2">
+        <img width="40%" src="https://pestwareapp.com/loginew/img/logo.svg" alt="">
+
+      </div>
+      <mat-form-field class="" appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input type="text" matInput formControlName="username">
+
+      </mat-form-field>
+
+
+      <mat-form-field class="" appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="password"   autocomplete="off" readonly onfocus="this.removeAttribute('readonly')">
+
+      </mat-form-field>
+
+
+
+
+
+        <div class="ui-form-row">
+
+            <button class="py-3"  mat-flat-button color="accent" (click)="login_onClick()" [disabled]="!loginForm.valid">ENTRAR</button>
+        </div>
+
+    </form>
+
+</div>
+

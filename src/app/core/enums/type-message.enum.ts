@@ -1,0 +1,7 @@
+export enum TYPE_MESSAGE{
+    SUCCESS = 'SUCCESS',
+    INFO = 'INFO',
+    DANGER = 'DANGER',
+    WARNING = 'WARNING',
+    MESSAGE = 'MESSAGE',
+}
