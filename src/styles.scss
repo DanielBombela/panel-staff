@@ -42,7 +42,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color:brown !important;
   color:white !important;
 }
+.th-bg{
 
+  background-color:  $var-color-accent !important;
+  color: #fff !important;
+ /* background-color: #ede4ff !important;
+   background-color: #eeebf4 !important;
+ */
+}
 
 .mat-mdc-mini-fab:not(.mdc-fab--extended) {
   box-shadow: none;
@@ -52,4 +59,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-mdc-mini-fab:not(.mdc-fab--extended):hover {
   box-shadow: none;
   border-radius: var(--mdc-fab-small-container-shape);
+}
+.table-row{
+  font-size: 15px !important;
+  height: 30px !important;
+
 }

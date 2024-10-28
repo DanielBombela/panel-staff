@@ -90,12 +90,14 @@ export default class PanelComponent {
           route: '/panel/countries',
           isActive: false,
         },
-        {
+/**
+ *         {
           name: 'Estatus',
           icon: 'checklist_rtl',
           route: '/panel/status',
           isActive: false,
         },
+ */
         // {name:'Países',Icon:'dashboard', route:"", isActive:false},
         // {name:'Países',Icon:'dashboard', route:"", isActive:false}
       ],

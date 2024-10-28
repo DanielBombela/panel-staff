@@ -1,0 +1,54 @@
+<div style="height: 55px;" class="d-flex justify-content-between  bg-color-accent my-0 px-4 pt-2">
+    <p class="text-bb fw-bold mb-4 my-0 h4 text-white">País</p>
+
+    <button (click)="close()" class="btn btn-close"></button>
+  </div>
+
+<div  [formGroup]="formGroup" class="container the-dense-zone mt-3">
+  
+      
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+          
+                <mat-form-field  appearance="outline" class="w-100 mt-2">
+                    <mat-label>Nombre</mat-label>
+                
+                    <input  formControlName="name" matInput   >
+                  </mat-form-field>
+           
+        </div>
+        <div class="col-sm-12 col-md-6">
+          
+            <mat-form-field  appearance="outline" class="w-100 mt-2">
+                <mat-label>Código de país</mat-label>
+            
+                <input  formControlName="code_country" matInput   >
+              </mat-form-field>
+       
+    </div>
+    <div class="col-sm-12 col-md-6">
+          
+        <mat-form-field  appearance="outline" class="w-100 mt-2">
+            <mat-label>Moneda</mat-label>
+        
+            <input  formControlName="coin_country" matInput   >
+          </mat-form-field>
+   
+</div>
+<div class="col-sm-12 col-md-6">
+          
+    <mat-form-field  appearance="outline" class="w-100 mt-2">
+        <mat-label>Simbolo de moneda</mat-label>
+    
+        <input  formControlName="symbol_country" matInput   >
+      </mat-form-field>
+
+</div>
+
+<div class="col-12 text-center">
+    <button [disabled]="formGroup.invalid" (click)="save()" class="my-2" color="accent" matTooltip="Guardar" mat-mini-fab >
+        <mat-icon class="text-white">save</mat-icon>
+      </button>
+</div>
+    </div>
+</div>

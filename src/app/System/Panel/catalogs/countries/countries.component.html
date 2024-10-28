@@ -1,1 +1,53 @@
-<p>countries works!</p>
+<div class="d-flex justify-content-start align-items-center">
+  <mat-form-field  appearance="outline" class="w-50 mt-4">
+    <mat-label>Buscar compañía</mat-label>
+
+    <input   (input)="searchCountry($event)" matInput   >
+  </mat-form-field>
+
+    <button (click)="addUpdateCountry(null)" class="ms-3" matTooltip="Agregar compañía" mat-mini-fab >
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </div>
+<table mat-table [dataSource]="CountryFilter" class="">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="code_country">
+      <th mat-header-cell *matHeaderCellDef> Código país </th>
+      <td mat-cell *matCellDef="let element"> {{element.code_country}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="coin_country">
+      <th mat-header-cell *matHeaderCellDef> Moneda </th>
+      <td mat-cell *matCellDef="let element"> {{element.coin_country}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol_country">
+      <th mat-header-cell *matHeaderCellDef> Simbolo </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol_country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td class="text-center py-2"  mat-cell *matCellDef="let element">
+            <mat-icon (click)="addUpdateCountry(element)" class="hover-pointer" matTooltip="Editar" color="primary" >edit</mat-icon> 
+            <mat-icon (click)="deleteCountry(element)" class="hover-pointer" matTooltip="eliminar"  color="warn" >delete</mat-icon>    
+        </td>
+      </ng-container>
+  
+    <tr class="th-bg" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr class="table-row row-hover" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
