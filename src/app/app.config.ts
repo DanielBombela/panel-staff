@@ -11,6 +11,7 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     // { provide: BrowserAnimationsModule, useValue: {} },
+
      provideRouter(routes, withViewTransitions({skipInitialTransition:true,})),
      provideClientHydration(),
      importProvidersFrom([ BrowserAnimationsModule]),
