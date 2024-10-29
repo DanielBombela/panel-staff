@@ -7,6 +7,7 @@ import { Companie } from './interfaces/instance.interface';
 import { LoadingComponent } from "../../../shared/components/loading/loading.component";
 import { MATERIAL_MODULES } from '../../../shared/material/material.imports';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../../../shared/services/local-storage.service';
 
 @Component({
   selector: 'app-intances',
@@ -17,7 +18,7 @@ import { Router } from '@angular/router';
 })
 export default class IntancesComponent implements OnInit {
 
-  constructor(private loading:LoadingService,private route:Router,private companiesService:CompaniesService){
+  constructor(private loading:LoadingService,private LocalStorageService:LocalStorageService, private route:Router,private companiesService:CompaniesService){
 
   }
   Companies: Companie [] = [];
@@ -59,6 +60,8 @@ export default class IntancesComponent implements OnInit {
   }
 
   viewCompanie(companie:Companie){
+    this.LocalStorageService.setItem("company", companie);
+
     this.route.navigateByUrl("/panel/instance/" + companie.id);
   }
 }

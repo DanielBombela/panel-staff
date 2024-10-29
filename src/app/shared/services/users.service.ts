@@ -36,7 +36,7 @@ export class UserService {
           this._currentUser.set(res.data.user);
           this._authStatus.set(authStatus.authenticated);
              this.storage.setItem(StorageEnum.TOKEN, res.data.access_token)
-            this.storage.setItem(StorageEnum.USER, JSON.stringify(res.data.user))
+            this.storage.setItem(StorageEnum.USER, res.data.user)
         
          
 
@@ -53,25 +53,26 @@ export class UserService {
   }
 
 
-  validarToken():boolean {
+
+  validarToken(): Observable<boolean> {
+
     const token = this.storage.getItem(StorageEnum.TOKEN);
   
     if (!token) {
       this._currentUser.set(null);
       this._authStatus.set(authStatus.notAuthenticated);
-      return false;
+      return of(false);
     }
-  
     const user = this.storage.getItem(StorageEnum.USER);
    
     
     if (user) {
-      this._currentUser.set(JSON.parse(user));
+      this._currentUser.set(user);
     } else {
       this._currentUser.set(null);
     }
     this._authStatus.set(authStatus.authenticated);
   
-    return true;
+    return of(true);
   }
 }

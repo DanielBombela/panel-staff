@@ -66,7 +66,7 @@ ngOnInit(): void {
       address: item.address,
       agreement:item.agreement,
       business_name: item.business_name,
-      company:this.LocalStorageService.getItem("COMPANY"), //this.UserService.Company.id,
+      company:this.LocalStorageService.getItem("company").id, //this.UserService.Company.id,
       email: item.email,
       facebook: item.facebook,
       health_manager: item.health_manager,

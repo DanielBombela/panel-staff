@@ -1,7 +1,7 @@
 export enum StorageEnum{
-   USER='USER',
+   USER='user',
    EMPLOYE='employee',
-   TOKEN='TKN_ACCESS',
+   TOKEN='access_token',
    JOB_CENTER='job_center',
    COMPANY='company',
       COUNTRY_CODE='country_code',

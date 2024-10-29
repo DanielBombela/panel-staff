@@ -1,50 +1,52 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
-import { UserService } from '../../shared/services/users.service';
-import { catchError, map, of, tap } from 'rxjs';
 
-import { authStatus } from '../models/auth-status.enum';
+import { Injectable } from '@angular/core';
+import {CanActivate, CanLoad, Router} from '@angular/router';
+import {Observable, tap} from 'rxjs';
+import { UserService } from '../../shared/services/users.service';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
 
 
-export const privateGuard: CanActivateFn = (route, state) => {
-  const _storage = inject(LocalStorageService);
-  const user = inject(UserService);
-  const router = inject(Router);
-  const tokenValido = user.validarToken()
-  
-  if(!tokenValido){
-    _storage.clear();
-    router.navigateByUrl('/login');
-    return tokenValido;
+@Injectable({
+  providedIn: 'root'
+})
+export class ValidateTokenGuard implements CanActivate, CanLoad {
+
+  constructor(
+    private authService: UserService,
+    private router: Router,
+    private storage:LocalStorageService
+  ) {}
+
+  canActivate(): Observable<boolean> | boolean {
+    //return true
+
+    return this.authService.validarToken()
+      .pipe(
+        tap( valid =>{
+          if (!valid) {
+            this.storage.clear()
+            this.router.navigateByUrl('/login');
+          }
+        })
+      )
+
   }
-    
 
-return tokenValido;
-};
+  canLoad(): Observable<boolean> | boolean {
+    //return true
 
+    return this.authService.validarToken()
+        .pipe(
+          tap( valid =>{
+            if (!valid) {
+              this.storage.clear()
+              this.router.navigateByUrl('/login');
+            }
+          })
+        )
 
+    }
 
-
-
-
-export const publicGuard: CanActivateFn = (route, state) => {
-
-  const user = inject(UserService);
-
-  const router = inject(Router);
-  const tokenValido = user.validarToken()
-  console.log("******");
-  console.log(tokenValido);
-
-if(tokenValido){
-  router.navigateByUrl("/");
-  return false;
 }
-
-return true;
-};
-
-
 
 

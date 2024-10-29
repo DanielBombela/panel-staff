@@ -37,7 +37,7 @@ totalDatos:number = 0;
 ngOnInit(): void {
 
   const id = this.route.snapshot.paramMap.get('idInstance');
-  this.LocalStorageService.setItem("COMPANY",id);
+
   this.getCompanieById(id);
 
      // Suscribirse a las notificaciones de recarga
@@ -48,7 +48,7 @@ ngOnInit(): void {
 }
 
 ngOnDestroy(): void {
-  this.LocalStorageService.removeItem("COMPANY");
+ // this.LocalStorageService.removeItem("company");
   // Limpia la suscripción al destruir el componente
  // this.subscription.unsubscribe();
 }

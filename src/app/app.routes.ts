@@ -1,16 +1,17 @@
 import { Routes } from '@angular/router';
-import { privateGuard, publicGuard } from './core/guards/auth.guard';
+import { ValidateTokenGuard } from './core/guards/auth.guard';
+import { LoginGuard } from './core/guards/public.guard';
 
 export const routes: Routes = [
     {
         path:'login',
-    canActivate:[publicGuard],
+    canActivate:[LoginGuard],
       loadChildren:()=> import("./System/auth/auth.routes")
     },
 
     {
         path:'panel',
-       canActivate:[privateGuard],
+       canActivate:[ValidateTokenGuard],
       loadComponent:()=> import("./System/Panel/panel.component"),
       children:[
         {
